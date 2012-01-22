@@ -66,8 +66,10 @@ nmap <LocalLeader>pp :set paste!<cr>
 
 call pathogen#infect()
 
-nmap <Leader>f :FufBuffer
-nmap <Leader>e :FufFile
+nmap <Leader>f :FufBuffer<cr>
+nmap <Leader>e :FufFile<cr>
 
-
-
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
