@@ -66,6 +66,8 @@ nmap <LocalLeader>pp :set paste!<cr>
 
 call pathogen#infect()
 
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+nmap <Leader>f :FufBuffer
+nmap <Leader>e :FufFile
+
 
 
