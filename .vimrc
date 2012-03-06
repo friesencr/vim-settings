@@ -61,14 +61,16 @@ endif
 
 " mappings
 " toggle list mode
-nmap <LocalLeader>tl :set list!<cr>
+nmap <Leader>tl :set list!<cr>
 " toggle paste mode
-nmap <LocalLeader>pp :set paste!<cr>
+nmap <Leader>pp :set paste!<cr>
 
 call pathogen#infect()
 
 nmap <Leader>f :FufBuffer<cr>
 nmap <Leader>e :FufFile<cr>
+
+map <F4> :TlistToggle<cr>
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
