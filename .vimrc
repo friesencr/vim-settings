@@ -70,7 +70,7 @@ call pathogen#infect()
 nmap <Leader>f :FufBuffer<cr>
 nmap <Leader>e :FufFile<cr>
 
-map <F4> :TlistToggle<cr>
+nmap <F8> :TagbarToggle<CR>
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
