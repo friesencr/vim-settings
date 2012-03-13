@@ -1,6 +1,14 @@
 syntax on
 colorscheme vividchalk
 
+if has("gui_running")
+	if has("gui_gtk2")
+		set guifont=Inconsolata\ 12
+	elseif has("gui_win32")
+		set guifont=Consolas:h11:cANSI
+	endif
+endif
+
 set background=dark
 set ruler                     " show the line number on the bar
 set more                      " use more prompt
@@ -27,9 +35,8 @@ set updatecount=100           " switch every 100 chars
 set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set ttyfast                   " we have a fast terminal
 set noerrorbells              " No error bells please
-" set shell=zsh
-set fileformats=unix
-set ff=unix
+set fileformats=dos
+set ff=dos
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
@@ -38,6 +45,7 @@ set wildmenu                  " menu has tab completion
 " let maplocalleader=','        " all my macros start with ,
 let mapleader=','
 set laststatus=2
+set foldmethod=indent
 
 "  searching
 set incsearch                 " incremental search
@@ -55,30 +63,40 @@ set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 " spelling
 if v:version >= 700
-  " Enable spell check for text files
-  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+	" Enable spell check for text files
+	autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 endif
+
+autocmd BufNewFile,BufRead *.cshtml set filetype=html
 
 " mappings
 " toggle list mode
-nmap <Leader>tl :set list!<cr>
+nmap <LocalLeader>tl :set list!<cr>
 " toggle paste mode
-nmap <Leader>pp :set paste!<cr>
+nmap <LocalLeader>pp :set paste!<cr>
 
 call pathogen#infect()
 
 nmap <Leader>f :FufBuffer<cr>
 nmap <Leader>e :FufFile<cr>
 
-nmap <F8> :TagbarToggle<CR>
+" Detect if omni complete is available
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+				\if &omnifunc == "" |
+				\setlocal omnifunc=syntaxcomplete#Complete |
+				\endif
+endif
 
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" Ctags
+set tags=./tags;/,~/.vimtags
+
+" EasyTags
+let g:easytags_cmd = 'ctags'
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
