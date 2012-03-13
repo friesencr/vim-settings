@@ -17,3 +17,11 @@ task :uninstall do
 	puts `rm ~/.vimrc`
 end
 
+task :submodules do
+	plugins = File.open("plugins.txt").read.split("\n")
+	plugins.each do |x|
+		name = File.basename(x).sub('.git', '')
+		puts "git submodule add #{x} .vim/bundle/#{name}"
+		`git submodule add #{x} .vim/bundle/#{name}`
+	end
+end
