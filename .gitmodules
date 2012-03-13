@@ -82,9 +82,6 @@
 [submodule ".vim/bundle/vim-lua-ftplugin"]
 	path = .vim/bundle/vim-lua-ftplugin
 	url = https://github.com/xolox/vim-lua-ftplugin.git
-[submodule ".vim/bundle/tlib_vim.git"]
-	path = .vim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
