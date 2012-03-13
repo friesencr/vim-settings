@@ -35,8 +35,12 @@ set updatecount=100           " switch every 100 chars
 set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set ttyfast                   " we have a fast terminal
 set noerrorbells              " No error bells please
-set fileformats=dos
-set ff=dos
+
+if has('win32')
+	set ffs=dos
+	set ff=unix
+endif
+
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
@@ -102,4 +106,4 @@ let g:easytags_cmd = 'ctags'
 let g:SuperTabDefaultCompletionType = "context"
 
 " Tagbar
-nmap <F8> :TagbarToggle
+nmap <F8> :TagbarToggle<CR>
