@@ -100,3 +100,6 @@ let g:easytags_cmd = 'ctags'
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
