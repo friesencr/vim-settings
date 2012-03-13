@@ -71,14 +71,14 @@ autocmd BufNewFile,BufRead *.cshtml set filetype=html
 
 " mappings
 " toggle list mode
-nmap <LocalLeader>tl :set list!<cr>
+nmap <LocalLeader>tl :set list!
 " toggle paste mode
-nmap <LocalLeader>pp :set paste!<cr>
+nmap <LocalLeader>pp :set paste!
 
 call pathogen#infect()
 
-nmap <Leader>f :FufBuffer<cr>
-nmap <Leader>e :FufFile<cr>
+nmap <Leader>f :FufBuffer
+nmap <Leader>e :FufFile
 
 " Detect if omni complete is available
 if has("autocmd") && exists("+omnifunc")
@@ -100,3 +100,6 @@ let g:easytags_cmd = 'ctags'
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+
+" Tagbar
+nmap <F8> :TagbarToggle
