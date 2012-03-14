@@ -81,8 +81,8 @@ nmap <LocalLeader>pp :set paste!
 
 call pathogen#infect()
 
-nmap <Leader>f :FufBuffer
-nmap <Leader>e :FufFile
+nmap <Leader>f :FufBuffer<CR>
+nmap <Leader>e :FufFile<CR>
 
 " Detect if omni complete is available
 if has("autocmd") && exists("+omnifunc")
