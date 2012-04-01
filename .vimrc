@@ -81,8 +81,11 @@ nmap <LocalLeader>pp :set paste!
 
 call pathogen#infect()
 
-nmap <Leader>f :FufBuffer<CR>
-nmap <Leader>e :FufFile<CR>
+" nmap <Leader>f :FufBuffer<CR>
+" nmap <Leader>e :FufFile<CR>
+
+" Command-T
+nnoremap <silent> <Leader>f :CommandT<CR>
 
 " Detect if omni complete is available
 if has("autocmd") && exists("+omnifunc")
@@ -107,3 +110,4 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
