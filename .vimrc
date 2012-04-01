@@ -49,7 +49,6 @@ set wildmenu                  " menu has tab completion
 " let maplocalleader=','        " all my macros start with ,
 let mapleader=','
 set laststatus=2
-set foldmethod=syntax
 
 "  searching
 set incsearch                 " incremental search
@@ -90,9 +89,9 @@ if has("autocmd") && exists("+omnifunc")
 				\endif
 endif
 
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Ctags
 set tags=./tags;/,~/.vimtags
