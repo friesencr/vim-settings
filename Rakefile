@@ -6,10 +6,15 @@ is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/)
 task :default => [:install]
 
 task :install do
+	pwd = Dir.pwd
 	puts `cp .vim ~/ -rf`
 	puts `cp .vimrc ~/.vimrc`
 	puts `gem install gem-ctags`
 	puts `gem ctags`
+	Dir.chdir(File.expand_path '~/.vim/bundle/Command-T')
+	`bundle install`
+	`rake make`
+	Dir.chdir(File.expand_path pwd)
 end
 
 task :uninstall do 

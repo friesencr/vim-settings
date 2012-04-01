@@ -32,7 +32,7 @@ set linebreak
 set cmdheight=2               " command line two lines high
 set undolevels=1000           " 1000 undos
 set updatecount=100           " switch every 100 chars
-set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
+" set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set ttyfast                   " we have a fast terminal
 set noerrorbells              " No error bells please
 
@@ -49,7 +49,7 @@ set wildmenu                  " menu has tab completion
 " let maplocalleader=','        " all my macros start with ,
 let mapleader=','
 set laststatus=2
-set foldmethod=indent
+set foldmethod=syntax
 
 "  searching
 set incsearch                 " incremental search
@@ -71,13 +71,8 @@ if v:version >= 700
 	autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 endif
 
+" razor templates
 autocmd BufNewFile,BufRead *.cshtml set filetype=html
-
-" mappings
-" toggle list mode
-nmap <LocalLeader>tl :set list!
-" toggle paste mode
-nmap <LocalLeader>pp :set paste!
 
 call pathogen#infect()
 
@@ -111,3 +106,5 @@ let g:SuperTabDefaultCompletionType = "context"
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" Rails
+nnoremap <silent> <Leader>a :A<CR>
