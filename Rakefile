@@ -7,8 +7,10 @@ task :default => [:install]
 
 task :install do
 	pwd = Dir.pwd
-	puts `cp .vim ~/ -rf`
-	puts `cp .vimrc ~/.vimrc`
+	puts `cp -rf .vim ~/`
+	puts `cp .vimrc ~/`
+	puts `mkdir ~/.vim_swap`
+	puts `mkdir ~/.vim_backup`
 	puts `gem install gem-ctags`
 	puts `gem ctags`
 	Dir.chdir(File.expand_path '~/.vim/bundle/Command-T')
