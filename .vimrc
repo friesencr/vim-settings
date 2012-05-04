@@ -79,7 +79,17 @@ call pathogen#infect()
 " nmap <Leader>e :FufFile<CR>
 
 " Command-T
-nnoremap <silent> <Leader>f :CommandT<CR>
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
+map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+map <leader>gr :e config/routes.rb<cr>
+map <leader>gg :e Gemfile<cr>
 
 " Detect if omni complete is available
 if has("autocmd") && exists("+omnifunc")
@@ -89,9 +99,9 @@ if has("autocmd") && exists("+omnifunc")
 				\endif
 endif
 
-" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Ctags
 set tags=./tags;/,~/.vimtags

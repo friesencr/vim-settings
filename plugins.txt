@@ -1,11 +1,8 @@
 https://github.com/vim-scripts/FuzzyFinder.git
-https://github.com/manalang/jshint.vim
 https://github.com/scrooloose/nerdtree.git
-https://github.com/honza/snipmate-snippets.git
 https://github.com/ervandew/supertab.git
 https://github.com/scrooloose/syntastic.git
 https://github.com/majutsushi/tagbar.git
-https://github.com/jeetsukumaran/vim-buffergator.git
 https://github.com/tpope/vim-bundler.git
 https://github.com/kchmck/vim-coffee-script.git
 https://github.com/tpope/vim-commentary.git
@@ -22,7 +19,6 @@ https://github.com/tpope/vim-rails.git
 https://github.com/vim-ruby/vim-ruby.git
 https://github.com/tpope/vim-rake
 https://github.com/xolox/vim-shell.git
-https://github.com/garbas/vim-snipmate.git
 https://github.com/tpope/vim-surround.git
 https://github.com/xolox/vim-lua-ftplugin.git
 https://github.com/tomtom/tlib_vim.git
@@ -31,4 +27,3 @@ https://github.com/vim-scripts/L9.git
 https://github.com/wincent/Command-T.git
 https://github.com/tsaleh/vim-align.git
 https://github.com/tpope/vim-markdown.git
-https://github.com/danchoi/ri.vim.git

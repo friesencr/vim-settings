@@ -1,15 +1,9 @@
 [submodule ".vim/bundle/FuzzyFinder"]
 	path = .vim/bundle/FuzzyFinder
 	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule ".vim/bundle/jshint.vim"]
-	path = .vim/bundle/jshint.vim
-	url = https://github.com/manalang/jshint.vim
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/snipmate-snippets"]
-	path = .vim/bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -19,9 +13,6 @@
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/vim-buffergator"]
-	path = .vim/bundle/vim-buffergator
-	url = https://github.com/jeetsukumaran/vim-buffergator.git
 [submodule ".vim/bundle/vim-bundler"]
 	path = .vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
@@ -70,9 +61,6 @@
 [submodule ".vim/bundle/vim-shell"]
 	path = .vim/bundle/vim-shell
 	url = https://github.com/xolox/vim-shell.git
-[submodule ".vim/bundle/vim-snipmate"]
-	path = .vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -97,6 +85,3 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/ri.vim"]
-	path = .vim/bundle/ri.vim
-	url = https://github.com/danchoi/ri.vim.git
