@@ -8,7 +8,6 @@ https://github.com/kchmck/vim-coffee-script.git
 https://github.com/tpope/vim-commentary.git
 https://github.com/hail2u/vim-css3-syntax.git
 https://github.com/skammer/vim-css-color.git
-https://github.com/tpope/vim-endwise.git
 https://github.com/gregsexton/MatchTag.git
 https://github.com/tsaleh/vim-matchit.git
 https://github.com/tpope/vim-fugitive.git
@@ -27,3 +26,4 @@ https://github.com/vim-scripts/L9.git
 https://github.com/wincent/Command-T.git
 https://github.com/tsaleh/vim-align.git
 https://github.com/tpope/vim-markdown.git
+https://github.com/mileszs/ack.vim
