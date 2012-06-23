@@ -73,7 +73,38 @@ endif
 " razor templates
 autocmd BufNewFile,BufRead *.cshtml set filetype=html
 
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'vim-scripts/FuzzyFinder.git'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'ervandew/supertab.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'majutsushi/tagbar.git'
+Bundle 'tpope/vim-bundler.git'
+Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'tpope/vim-commentary.git'
+Bundle 'hail2u/vim-css3-syntax.git'
+Bundle 'skammer/vim-css-color.git'
+Bundle 'gregsexton/MatchTag.git'
+Bundle 'tsaleh/vim-matchit.git'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'pangloss/vim-javascript.git'
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'tpope/vim-rails.git'
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'tpope/vim-rake'
+Bundle 'xolox/vim-shell.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'xolox/vim-lua-ftplugin.git'
+Bundle 'tomtom/tlib_vim.git'
+Bundle 'MarcWeber/vim-addon-mw-utils.git'
+Bundle 'vim-scripts/L9.git'
+Bundle 'wincent/Command-T.git'
+Bundle 'tsaleh/vim-align.git'
+Bundle 'tpope/vim-markdown.git'
+Bundle 'mileszs/ack.vim'
 
 " nmap <Leader>f :FufBuffer<CR>
 " nmap <Leader>e :FufFile<CR>
