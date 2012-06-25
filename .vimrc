@@ -76,6 +76,7 @@ autocmd BufNewFile,BufRead *.cshtml set filetype=html
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'gmarik/vundle.git'
 Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'ervandew/supertab.git'
@@ -85,7 +86,7 @@ Bundle 'tpope/vim-bundler.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'hail2u/vim-css3-syntax.git'
-Bundle 'skammer/vim-css-color.git'
+" Bundle 'skammer/vim-css-color.git'
 Bundle 'gregsexton/MatchTag.git'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'tpope/vim-fugitive.git'
