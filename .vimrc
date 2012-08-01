@@ -46,7 +46,7 @@ if has("gui_running")
 	endif
 endif
 
-set mouse=a
+set mouse=ar
 set background=dark
 set ruler                     " show the line number on the bar
 set more                      " use more prompt
@@ -72,6 +72,10 @@ set updatecount=100           " switch every 100 chars
 " set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set ttyfast                   " we have a fast terminal
 set noerrorbells              " No error bells please
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 if has('win32')
 	set ffs=dos
