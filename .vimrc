@@ -34,6 +34,7 @@ Bundle 'wincent/Command-T.git'
 Bundle 'tsaleh/vim-align.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'mileszs/ack.vim'
+Bundle 'bronson/vim-trailing-whitespace.git'
 
 syntax on
 colorscheme vividchalk
