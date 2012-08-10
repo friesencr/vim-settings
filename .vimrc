@@ -35,6 +35,10 @@ Bundle 'tsaleh/vim-align.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace.git'
+Bundle 'skalnik/vim-vroom'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-ragtag.git'
+" Bundle 'cakebaker/scss-syntax.vim.git'
 
 syntax on
 colorscheme vividchalk
@@ -104,6 +108,25 @@ set backupdir=~/.vim_backup
 set directory=~/.vim_swap
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 "set viminfo='100,f1
+
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 
 " spelling
 if v:version >= 700
