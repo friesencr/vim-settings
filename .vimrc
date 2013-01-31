@@ -5,6 +5,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle.git'
+Bundle 'tpope/vim-sensible.git'
+Bundle 'tpope/vim-sleuth'
 Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'ervandew/supertab.git'
@@ -39,9 +41,18 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-ragtag.git'
 " Bundle 'cakebaker/scss-syntax.vim.git'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate.git'
+Bundle 'honza/snipmate-snippets'
+Bundle 'derekwyatt/vim-fswitch.git'
 
 syntax on
 colorscheme vividchalk
+
+set number
+let mapleader = ","
+let g:mapleader = ","
 
 if has("gui_running")
 	if has("gui_gtk2")
@@ -50,96 +61,6 @@ if has("gui_running")
 		set guifont=Consolas:h11:cANSI
 	endif
 endif
-
-set mouse=ar
-set background=dark
-set ruler                     " show the line number on the bar
-set more                      " use more prompt
-set autoread                  " watch for file changes
-set number                    " line numbers
-set hidden
-set noautowrite               " don't automagically write on :next
-set lazyredraw                " don't redraw when don't have to
-set showmode
-set showcmd
-set autoindent smartindent    " auto/smart indent
-set smarttab                  " tab and backspace are smart
-set tabstop=2                 " 6 spaces
-set shiftwidth=2
-set scrolloff=5               " keep at least 5 lines above/below
-set sidescrolloff=5           " keep at least 5 lines left/right
-set history=200
-set backspace=indent,eol,start
-set linebreak
-set cmdheight=2               " command line two lines high
-set undolevels=1000           " 1000 undos
-set updatecount=100           " switch every 100 chars
-" set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
-set ttyfast                   " we have a fast terminal
-set noerrorbells              " No error bells please
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
-
-if has('win32')
-	set ffs=dos
-	set ff=unix
-endif
-
-filetype indent on            " Enable filetype-specific indenting
-filetype plugin on            " Enable filetype-specific plugins
-set wildmode=longest:full
-set wildmenu                  " menu has tab completion
-" let maplocalleader=','        " all my macros start with ,
-let mapleader=','
-set laststatus=2
-
-"  searching
-set incsearch                 " incremental search
-set ignorecase                " search ignoring case
-set hlsearch                  " highlight the search
-set showmatch                 " show matching bracket
-set diffopt=filler,iwhite     " ignore all whitespace and sync
-
-"  backup
-set backup
-set backupdir=~/.vim_backup
-set directory=~/.vim_swap
-set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
-"set viminfo='100,f1
-
-function ShowSpaces(...)
-  let @/='\v(\s+$)|( +\ze\t)'
-  let oldhlsearch=&hlsearch
-  if !a:0
-    let &hlsearch=!&hlsearch
-  else
-    let &hlsearch=a:1
-  end
-  return oldhlsearch
-endfunction
-
-function TrimSpaces() range
-  let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///gec"
-  let &hlsearch=oldhlsearch
-endfunction
-
-command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
-
-" spelling
-if v:version >= 700
-	" Enable spell check for text files
-	autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
-endif
-
-" razor templates
-autocmd BufNewFile,BufRead *.cshtml set filetype=html
-
-
-" nmap <Leader>f :FufBuffer<CR>
-" nmap <Leader>e :FufFile<CR>
 
 " Command-T
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
@@ -169,14 +90,16 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " Ctags
 set tags=./tags;/,~/.vimtags
 
-" EasyTags
-let g:easytags_cmd = 'ctags'
-
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Disable auto popup, use <Tab> to autocomplete
+let g:clang_complete_auto = 0
+" Show clang errors in the quickfix window
+let g:clang_complete_copen = 1
 
 " Rails
 nnoremap <silent> <Leader>a :A<CR>
