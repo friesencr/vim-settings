@@ -30,21 +30,22 @@ Bundle 'mileszs/ack.vim'
 " Bundle 'tpope/vim-haml.git'
 " Bundle 'tpope/vim-ragtag.git'
 " Bundle 'tpope/vim-surround.git'
-Bundle 'gilsondev/vim-monokai.git'
 " Bundle 'skwp/vim-html-escape.git'
 " Bundle 'airblade/vim-gitgutter.git'
 " Bundle 'Lokaltog/vim-powerline.git'
-" Bundle 'vitaly/vim-gitignore.git'
+Bundle 'vitaly/vim-gitignore.git'
 " Bundle 'thoughtbot/vim-rspec'
 Bundle "kien/ctrlp.vim.git"
 " Bundle 'SirVer/ultisnips.git'
 Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'vim-scripts/a.vim'
 
 filetype on
 syntax on
 filetype indent on
 filetype plugin on
-colorscheme monokai
+colorscheme jelleybeans
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
@@ -93,6 +94,9 @@ map <leader>b :CtrlPBuffer<cr>
 map <leader>gr :e config/routes.rb<cr>
 map <leader>gg :e Gemfile<cr>
 
+" TagBar
+nmap <F8> :TagbarToggle<CR>
+
 " Ultisnips
 let g:UltiSnipsExpandTrigger = '<c-l>'
 let g:UltiSnipsListSnippets = '<c-m>'
@@ -103,6 +107,9 @@ set tags=./tags;/,~/.vimtags
 " replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
+" syntastic
+let g:syntastic_ignore_files = ['\.as$']
+
 map <Leader>t :Rrunner<CR>
 
 " rules by filetype
@@ -110,3 +117,5 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype haml setlocal ts=2 sts=2 sw=2
+
+au BufRead,BufNewFile *.as set filetype=cpp
