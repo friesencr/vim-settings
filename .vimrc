@@ -45,11 +45,14 @@ filetype on
 syntax on
 filetype indent on
 filetype plugin on
-colorscheme jelleybeans
+colorscheme molokai
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
 set mouse=ar
+set cursorline
+set nobackup
+set noswapfile
 
 let mapleader = ","
 let g:mapleader = ","
@@ -58,25 +61,8 @@ if has("gui_win32")
 	set guifont=Consolas:h11:cANSI
 endif
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
-let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-if isdirectory(expand(s:dir))
-  if &directory =~# '^\.,'
-    let &directory = expand(s:dir) . '/swap//,' . &directory
-  endif
-  if &backupdir =~# '^\.,'
-    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-  endif
-  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-    let &undodir = expand(s:dir) . '/undo//,' . &undodir
-  endif
-endif
-if exists('+undofile')
-  set undofile
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
 endif
 
 let g:ctrlp_map = '<c-p>'
@@ -97,10 +83,6 @@ map <leader>gg :e Gemfile<cr>
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger = '<c-l>'
-let g:UltiSnipsListSnippets = '<c-m>'
-
 " Ctags
 set tags=./tags;/,~/.vimtags
 
@@ -117,5 +99,8 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype haml setlocal ts=2 sts=2 sw=2
+
+" map to ycm go to def/dec
+nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 au BufRead,BufNewFile *.as set filetype=cpp
