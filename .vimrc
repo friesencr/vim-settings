@@ -11,18 +11,18 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'majutsushi/tagbar.git'
-" Bundle 'tpope/vim-bundler.git'
+Bundle 'tpope/vim-bundler.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'tpope/vim-commentary.git'
 " Bundle 'gregsexton/MatchTag.git'
 " Bundle 'tsaleh/vim-matchit.git'
 Bundle 'tpope/vim-fugitive.git'
-" Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'pangloss/vim-javascript.git'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'pangloss/vim-javascript.git'
 Bundle 'tpope/vim-rails.git'
-" Bundle 'vim-ruby/vim-ruby.git'
-" Bundle 'tpope/vim-rake'
-" Bundle 'tsaleh/vim-align.git'
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'tpope/vim-rake'
+Bundle 'tsaleh/vim-align.git'
 " Bundle 'tpope/vim-markdown.git'
 Bundle 'mileszs/ack.vim'
 " Bundle 'bronson/vim-trailing-whitespace.git'
@@ -31,7 +31,7 @@ Bundle 'mileszs/ack.vim'
 " Bundle 'tpope/vim-ragtag.git'
 " Bundle 'tpope/vim-surround.git'
 " Bundle 'skwp/vim-html-escape.git'
-" Bundle 'airblade/vim-gitgutter.git'
+Bundle 'airblade/vim-gitgutter.git'
 " Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'vitaly/vim-gitignore.git'
 " Bundle 'thoughtbot/vim-rspec'
@@ -40,6 +40,11 @@ Bundle "kien/ctrlp.vim.git"
 Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/a.vim'
+Bundle 'tikhomirov/vim-glsl'
+" Bundle 'beyondmarc/glsl.vim'
+Bundle 'leafo/moonscript-vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'nosami/Omnisharp'
 
 filetype on
 syntax on
@@ -49,8 +54,10 @@ colorscheme molokai
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set mouse=ar
-set cursorline
+set nocursorline
 set nobackup
 set noswapfile
 
@@ -61,13 +68,11 @@ if has("gui_win32")
 	set guifont=Consolas:h11:cANSI
 endif
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlP<cr>
+map <leader>f :CtrlP ./<cr>
 map <leader>gv :CtrlP app/views<cr>
 map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gm :CtrlP app/models<cr>
@@ -85,6 +90,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " Ctags
 set tags=./tags;/,~/.vimtags
+" set shell=$SHELL
+set shell=$SHELL
+set hidden
 
 " replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -99,8 +107,25 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype haml setlocal ts=2 sts=2 sw=2
+autocmd Filetype moon setlocal ts=2 sts=2 sw=2
+
+if has("autocmd")
+	autocmd FileType ruby set omnifunc=rubycomplete#Complete
+	" let g:rubycomplete_load_gemfile = 1
+	" let g:rubycomplete_use_bundler = 1
+endif
+
 
 " map to ycm go to def/dec
 nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" lazy close
+nnoremap <leader>c :close<CR>
 
 au BufRead,BufNewFile *.as set filetype=cpp
+
+" commentary
+autocmd FileType moon set commentstring=--\ %s
+
+" autocmd BufNewFile,BufRead *.vp,*.fp,*.gp,*.vs,*.fs,*.gs,*.tcs,*.tes,*.cs,*.vert,*.frag,*.geom,*.tess,*.shd,*.gls,*.glsl set ft=glsl330
