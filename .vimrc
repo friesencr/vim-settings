@@ -1,56 +1,64 @@
 set nocompatible              " vim, not vi
 filetype off                   " Enable filetype detection
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle.git'
-Bundle 'tpope/vim-sensible.git'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-dispatch'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'tpope/vim-bundler.git'
-Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'tpope/vim-commentary.git'
-" Bundle 'gregsexton/MatchTag.git'
-" Bundle 'tsaleh/vim-matchit.git'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'pangloss/vim-javascript.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'vim-ruby/vim-ruby.git'
-Bundle 'tpope/vim-rake'
-Bundle 'tsaleh/vim-align.git'
-" Bundle 'tpope/vim-markdown.git'
-Bundle 'mileszs/ack.vim'
-" Bundle 'bronson/vim-trailing-whitespace.git'
-" Bundle 'skalnik/vim-vroom'
-" Bundle 'tpope/vim-haml.git'
-" Bundle 'tpope/vim-ragtag.git'
-" Bundle 'tpope/vim-surround.git'
-" Bundle 'skwp/vim-html-escape.git'
-Bundle 'airblade/vim-gitgutter.git'
-" Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'vitaly/vim-gitignore.git'
-" Bundle 'thoughtbot/vim-rspec'
-Bundle "kien/ctrlp.vim.git"
-" Bundle 'SirVer/ultisnips.git'
-Bundle 'Valloric/YouCompleteMe.git'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'vim-scripts/a.vim'
-Bundle 'tikhomirov/vim-glsl'
-" Bundle 'beyondmarc/glsl.vim'
-Bundle 'leafo/moonscript-vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'nosami/Omnisharp'
+Plugin 'gmarik/vundle.git'
+Plugin 'tpope/vim-sensible.git'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-dispatch'
+" Plugin 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'majutsushi/tagbar.git'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'kchmck/vim-coffee-script.git'
+Plugin 'tpope/vim-commentary.git'
+" Plugin 'gregsexton/MatchTag.git'
+" Plugin 'tsaleh/vim-matchit.git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript.git'
+Plugin 'tpope/vim-rails.git'
+Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'tpope/vim-rake'
+Plugin 'tsaleh/vim-align.git'
+" Plugin 'tpope/vim-markdown.git'
+" Plugin 'bronson/vim-trailing-whitespace.git'
+" Plugin 'skalnik/vim-vroom'
+" Plugin 'tpope/vim-haml.git'
+" Plugin 'tpope/vim-ragtag.git'
+" Plugin 'tpope/vim-surround.git'
+" Plugin 'skwp/vim-html-escape.git'
+Plugin 'mhinz/vim-signify'
+" Plugin 'Lokaltog/vim-powerline.git'
+Plugin 'vitaly/vim-gitignore.git'
+" Plugin 'thoughtbot/vim-rspec'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/a.vim'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'leafo/moonscript-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'nosami/Omnisharp'
+Plugin 'fatih/vim-go'
+Plugin 'bling/vim-airline'
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-vinegar'
+Plugin 'rking/ag.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-shell'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'ekalinin/Dockerfile.vim'
 
-filetype on
+call vundle#end()            " required
+filetype plugin indent on    " required`
+
 syntax on
-filetype indent on
-filetype plugin on
 colorscheme molokai
+" set background=dark
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
@@ -88,6 +96,8 @@ map <leader>gg :e Gemfile<cr>
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 
+map <leader>m :Make<CR>
+
 " Ctags
 set tags=./tags;/,~/.vimtags
 " set shell=$SHELL
@@ -109,15 +119,17 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype haml setlocal ts=2 sts=2 sw=2
 autocmd Filetype moon setlocal ts=2 sts=2 sw=2
 
-if has("autocmd")
-	autocmd FileType ruby set omnifunc=rubycomplete#Complete
-	" let g:rubycomplete_load_gemfile = 1
-	" let g:rubycomplete_use_bundler = 1
-endif
+" if has("autocmd")
+" 	autocmd FileType ruby set omnifunc=rubycomplete#Complete
+" 	" let g:rubycomplete_load_gemfile = 1
+" 	" let g:rubycomplete_use_bundler = 1
+" endif
 
+" ctrl p c matcher
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " map to ycm go to def/dec
-nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " lazy close
@@ -127,5 +139,21 @@ au BufRead,BufNewFile *.as set filetype=cpp
 
 " commentary
 autocmd FileType moon set commentstring=--\ %s
+autocmd FileType glsl set commentstring=\/\/\ %s
 
 " autocmd BufNewFile,BufRead *.vp,*.fp,*.gp,*.vs,*.fs,*.gs,*.tcs,*.tes,*.cs,*.vert,*.frag,*.geom,*.tess,*.shd,*.gls,*.glsl set ft=glsl330
+
+" airline
+" let g:airline_theme = 'pencil'
+
+" white space
+autocmd Filetype c setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" set paste mode when pasting from clipboard
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
