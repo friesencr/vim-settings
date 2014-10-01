@@ -52,6 +52,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-shell'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'othree/html5.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required`
