@@ -10,7 +10,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-dispatch'
 " Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic.git'
-Plugin 'majutsushi/tagbar.git'
+" Plugin 'majutsushi/tagbar.git'
 Plugin 'tpope/vim-bundler.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'tpope/vim-commentary.git'
@@ -23,12 +23,12 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'tpope/vim-rake'
 Plugin 'tsaleh/vim-align.git'
-" Plugin 'tpope/vim-markdown.git'
+Plugin 'tpope/vim-markdown.git'
 " Plugin 'bronson/vim-trailing-whitespace.git'
 " Plugin 'skalnik/vim-vroom'
-" Plugin 'tpope/vim-haml.git'
-" Plugin 'tpope/vim-ragtag.git'
-" Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-haml.git'
+Plugin 'tpope/vim-ragtag.git'
+Plugin 'tpope/vim-surround.git'
 " Plugin 'skwp/vim-html-escape.git'
 Plugin 'mhinz/vim-signify'
 " Plugin 'Lokaltog/vim-powerline.git'
@@ -40,8 +40,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/a.vim'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'leafo/moonscript-vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'nosami/Omnisharp'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'nosami/Omnisharp'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'JazzCore/ctrlp-cmatcher'
@@ -53,13 +53,18 @@ Plugin 'xolox/vim-shell'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'othree/html5.vim'
+" Plugin 'gilligan/vim-lldb'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/visualrepeat'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 call vundle#end()            " required
 filetype plugin indent on    " required`
 
 syntax on
+set background=dark
 colorscheme molokai
-" set background=dark
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
@@ -69,6 +74,9 @@ set mouse=ar
 set nocursorline
 set nobackup
 set noswapfile
+set hlsearch
+nnoremap <CR> :nohlsearch<CR><CR>
+" set cursorline
 
 let mapleader = ","
 let g:mapleader = ","
@@ -89,7 +97,7 @@ map <leader>gh :CtrlP app/helpers<cr>
 map <leader>gl :CtrlP lib<cr>
 map <leader>gs :CtrlP app/assets/stylesheets<cr>
 map <leader>gj :CtrlP app/assets/javascripts<cr>
-map <leader>gt :CtrlP spec<cr>
+map <leader>gt :CtrlP test<cr>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>gr :e config/routes.rb<cr>
 map <leader>gg :e Gemfile<cr>
@@ -130,13 +138,15 @@ autocmd Filetype moon setlocal ts=2 sts=2 sw=2
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " map to ycm go to def/dec
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
-let g:ycm_collect_identifiers_from_tags_files = 1
+nnoremap <leader><F12> :YcmCompleter GoTo<CR>
+" nnoremap <leader>gd :YcmCompleter GoTo<CR>
+" let g:ycm_collect_identifiers_from_tags_files = 1
 
 " lazy close
 nnoremap <leader>c :close<CR>
 
-au BufRead,BufNewFile *.as set filetype=cpp
+" au BufRead,BufNewFile *.as set filetype=cpp
+au BufRead,BufNewFile *.as set syntax=cpp
 
 " commentary
 autocmd FileType moon set commentstring=--\ %s
@@ -158,3 +168,6 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" gdb
+let g:ConqueGdb_Leader = '\'
