@@ -127,7 +127,6 @@ Plug 'stevearc/vim-arduino'
 "
 " colors
 Plug 'folke/tokyonight.nvim'
-Plug 'ray-x/aurora'
 Plug 'rebelot/kanagawa.nvim'
 " Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " Plug 'marko-cerovac/material.nvim'
@@ -150,8 +149,7 @@ set smartindent
 
 let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
-" colorscheme tokyonight
-colorscheme aurora
+colorscheme tokyonight
 
 
 set number
