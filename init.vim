@@ -4,41 +4,48 @@ filetype off                   " Enable filetype detection
 call plug#begin('~/.vim/plugged')
 
 " configuration
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 
 "lsp"
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
-Plug 'alexaandru/nvim-lspupdate'
+Plug 'williamboman/mason-lspconfig.nvim'
+" Plug 'mhanberg/output-panel.nvim'
+
+" Plug 'alexaandru/nvim-lspupdate'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'j-hui/fidget.nvim'
+
 
 
 "treesitter"
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " Functional/UI
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Plug 'janko-m/vim-test'
 " telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+
 
 " tree
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua'
 
 " code action menu
 Plug 'weilbith/nvim-code-action-menu'
 
-" Plug 'folke/lsp-trouble.nvim'
+Plug 'folke/lsp-trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
-" Plug 'akinsho/nvim-bufferline.lua'
-Plug 'romgrk/barbar.nvim'
+Plug 'akinsho/nvim-bufferline.lua'
+" Plug 'romgrk/barbar.nvim'
 Plug 'folke/which-key.nvim'
-" Plug 'hoob3rt/lualine.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'SmiteshP/nvim-navic'
+Plug 'SmiteshP/nvim-navbuddy'
+Plug 'utilyre/barbecue.nvim'
 
 "completion"
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -64,24 +71,30 @@ Plug 'windwp/nvim-ts-autotag'
 "Plug 'terrortylor/nvim-comment'
 Plug 'numToStr/Comment.nvim'
 Plug 'folke/todo-comments.nvim'
-" Plug 'simrat39/symbols-outline.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 " Plug 'pechorin/any-jump.vim'
 " Plug 'glepnir/lspsaga.nvim'
 " Plug 'kevinhwang91/nvim-bqf'
-Plug 'ray-x/lsp_signature.nvim'
+" Plug 'ray-x/lsp_signature.nvim'
 Plug 'Xuyuanp/scrollbar.nvim'
-Plug 'simrat39/symbols-outline.nvim'
+" Plug 'simrat39/symbols-outline.nvim'
+" Plug 'rgroli/other.nvim'
+" Plug 'kosayoda/nvim-lightbulb'
 " Plug 'sindrets/diffview.nvim'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'ellisonleao/glow.nvim'
+
+
 
 " debug
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'leoluz/nvim-dap-go'
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'jay-babu/mason-nvim-dap.nvim'
+" Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 
 " other
-Plug 'tikhomirov/vim-glsl'
+" Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-abolish'
 " Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
@@ -92,42 +105,33 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
+
 " Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-vinegar'
 
 " Syntax
-" Plug 'ianks/vim-tsx'
-" Plug 'tpope/vim-haml'
-" Plug 'tpope/vim-markdown'
-" Plug 'neoclide/jsonc.vim'
 " Plug 'kamailio/vim-kamailio-syntax'
 
 " Ruby
-" Plug 'tpope/vim-rails'
 
 " Go
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ray-x/go.nvim'
+" Plug 'ray-x/go.nvim'
 
 " typescript
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " vue
-" Plug 'posva/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
-" Plug 'digitaltoad/vim-pug'
 
 " arduino
-Plug 'stevearc/vim-arduino'
+" Plug 'stevearc/vim-arduino'
 
 " js
 " Plug 'kchmck/vim-coffee-script'
 "
 " colors
+" Plug 'neanias/everforest-nvim', { 'branch': 'main' }
 Plug 'folke/tokyonight.nvim'
-Plug 'rebelot/kanagawa.nvim'
+" Plug 'rebelot/kanagawa.nvim'
 " Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " Plug 'marko-cerovac/material.nvim'
 
@@ -139,49 +143,50 @@ syntax on
 
 set encoding=UTF-8
 set termguicolors
-" set background=dark
+set background=dark
 set autoindent
 set smartindent
+" set updatetime=500
 " set t_Co=256
 "
 " let g:airline_theme='kanagawa'
 " colorscheme kanagawa
 
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-colorscheme tokyonight
+colorscheme tokyonight-night
+
+" colorscheme everforest
 
 
 set number
 set wildignore+=*.o,*.obj,.git,*.dynlib
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set mouse=ar
+" set mouse=ar
 set nocursorline
 set nobackup
 set noswapfile
 set hlsearch
 " set clipboard+=unnamedplus
-set nomodeline
+" set nomodeline
 set textwidth=120
 set hidden
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone
 
 
-set laststatus=2
+set laststatus=3
 set cmdheight=2
 " don't give |ins-completion-menu| messages.
-set shortmess+=c
+" set shortmess+=c
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+" set updatetime=500
 
 " always show signcolumns
 set signcolumn=yes
-set showmatch
-set matchtime=3
-set list
+" set showmatch
+" set matchtime=3
+" set nolist
 set incsearch
 set scrolloff=10
 
@@ -196,22 +201,22 @@ function! FormatStack()
   execute '%s/\\t/\t/g'
 endfunction
 
-if has("gui_win32")
-	set guifont=Consolas:h11:cANSI
-endif
-
+" if has("gui_win32")
+" 	set guifont=Consolas:h11:cANSI
+" endif
+"
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <leader>fd <cmd>lua require('telescope.builtin').diagnostics()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
-" nnoremap <leader>fa <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 
 " nnoremap <leader>v <cmd>CHADopen<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>dr <cmd>lua vim.lsp.buf.rename()<cr>
+" nnoremap <leader>ar <cmd>lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>f- <cmd>lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<cr>
 
 " nnoremap - <cmd>lua require('telescope.builtin').file_browser()<cr>
@@ -219,7 +224,7 @@ nnoremap <leader>f- <cmd>lua require('telescope.builtin').file_browser({cwd = vi
 " nnoremap - <cmd>:Ex<cr>
 nnoremap - <cmd>:NvimTreeFindFile<cr>
 nnoremap <leader>v <cmd>:NvimTreeToggle<CR>
-nnoremap <leader>da <cmd>:CodeActionMenu<CR>
+nnoremap <leader>aa <cmd>:CodeActionMenu<CR>
 
 map <leader>o :SymbolsOutline<cr>
 
@@ -230,6 +235,8 @@ map <leader>m :Make<CR>
 
 " replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap <C-n> :cn<CR>
+nnoremap <C-p> :cp<CR>
 
  
 " test runners
@@ -248,8 +255,10 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " lazy close
 nnoremap <leader>c :close<CR>
-nnoremap <C-l> :BufferNext<CR>
-nnoremap <C-h> :BufferPrev<CR>
+" nnoremap <C-l> :BufferNext<CR>
+" nnoremap <C-h> :BufferPrev<CR>
+nnoremap <C-l> :BufferLineCycleNext<CR>
+nnoremap <C-h> :BufferLineCyclePrev<CR>
 
 " au BufRead,BufNewFile *.as set filetype=cpp
 au BufRead,BufNewFile *.as set syntax=cpp
@@ -273,12 +282,12 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-augroup ScrollbarInit
-  autocmd!
-  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
-augroup end
+" augroup ScrollbarInit
+"   autocmd!
+"   autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+"   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+"   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+" augroup end
 
 " vue
 let g:vim_vue_plugin_load_full_syntax = 1
@@ -297,22 +306,24 @@ let g:vim_vue_plugin_use_sass = 1
 " highlight NvimTreeFolderIcon guibg=Blue
 
 lua <<EOF
--- require('material').setup()
 
--- setup mason
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 -- Setup nvim-cmp.
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,{ update_in_insert = false })
+
+require('nvim-ts-autotag').setup()
+
+local npairs = require("nvim-autopairs")
+local Rule = require('nvim-autopairs.rule')
+npairs.setup({
+    check_ts = true,
+})
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+require("nvim-autopairs").setup {}
+
 local cmp = require'cmp'
 
 cmp.setup({
@@ -342,7 +353,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp_signature_help' },
-    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp', priority = 8 },
     { name = 'nvim_lua' },
     { name = 'dap' },
     { name = 'vsnip' }, -- For vsnip users.
@@ -354,31 +365,30 @@ cmp.setup({
   })
 })
 
--- cmp.setup.filetype('go', {
---   sources = cmp.config.sources({
---     { name = 'nvim_lsp' },
---     { name = 'vsnip' }, -- For vsnip users.
---   }, {
---   })
--- })
-
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 -- lsp saga
 -- nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 -- nnoremap <silent>K :Lspsaga hover_doc<CR>
 
-require("lualine").setup{ }
+require("lualine").setup{ 
+  options = {
+    theme = 'tokyonight'
+  }
+}
+require("symbols-outline").setup()
+
+-- require "lsp_signature".setup({})
+
 
 -- treesitter
 --
 
 require'nvim-treesitter.configs'.setup {
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
-    custom_captures = {
-    },
   },
   indent = {
     enable = true
@@ -394,116 +404,157 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
--- require("trouble").setup { }
--- -- Lua
--- vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
---   {silent = true, noremap = true}
--- )
--- vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
---   {silent = true, noremap = true}
--- )
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>=', '<cmd>lua vim.lsp.buf.format(nil, 20000)<CR>', opts)
-
-  require "lsp_signature".on_attach({
-    bind = true, -- This is mandatory, otherwise border config won't get registered.
-    handler_opts = {
-      border = "rounded"
-    }
-  }, bufnr)
-end
+-- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setqflist({ severity = { vim.diagnostic.severity.ERROR }})<CR>', opts)
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jsonls', 'tsserver', 'vimls', 'volar', 'vuels', 'yamlls' } --'sumneko_lua', 'solargraph','diagnosticls',
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+local navic = require("nvim-navic")
+local navbuddy = require("nvim-navbuddy")
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>=', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+
+  end,
+})
+
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>=', '<cmd>lua vim.lsp.buf.format(nil, 20000)<CR>', opts)
+
+
+
+local on_attach = function(client, bufnr)
+  -- require "lsp_signature".on_attach({
+  --   bind = true, -- This is mandatory, otherwise border config won't get registered.
+  --   handler_opts = {
+  --     border = "rounded"
+  --   }
+  -- }, bufnr)
+
+  if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+  end
+  navbuddy.attach(client, bufnr)
 end
 
--- require'lspconfig'.gopls.setup{
---     on_attach = function(client, bufnr)
---       on_attach(client, bufnr)
---     end,
+-- local servers = { 'bashls', 'cssls', 'dockerls', 'eslint', 'gopls', 'html', 'jsonls', 'tsserver', 'vimls', 'volar', 'vuels', 'yamlls' } --'sumneko_lua', 'solargraph','diagnosticls',
+-- for _, lsp in ipairs(servers) do
+--   require('lspconfig')[lsp].setup{
+--     on_attach = on_attach,
 --     capabilities = capabilities,
+--   }
+-- end
+
+-- setup mason
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+--
+require("mason-lspconfig").setup({
+  handlers = {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+      require("lspconfig")[server_name].setup {
+        -- on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+          debounce_text_changes = 150,
+        },
+      }
+    end,
+  }
+})
+
+-- require("mason-nvim-dap").setup({
+--     automatic_setup = true,
+-- })
+--
+-- require'lspconfig'.jsonls.setup{
+--   -- on_attach = on_attach,
+--   capabilities = capabilities,
+--   commands = {
+--     Format = {
+--       function()
+--         vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+--       end
+--     }
+--   }
+-- }
+-- 
+-- require'lspconfig'.stylelint_lsp.setup{
+--   -- on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     stylelintplus = {
+--       autoFixOnSave = true,
+--       autoFixOnFormat = true,
+--     }
+--   },
 -- }
 
-require'lspconfig'.jsonls.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
-    }
-  }
-}
+-- require("null-ls").setup({
+--     -- you can reuse a shared lspconfig on_attach callback here
+--     sources = {
+--       require("null-ls").builtins.formatting.gofumpt,
+--     }
+-- })
 
-require'lspconfig'.stylelint_lsp.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    stylelintplus = {
-      autoFixOnSave = true,
-      autoFixOnFormat = true,
-    }
-  },
-}
-
-require("null-ls").setup({
-    -- you can reuse a shared lspconfig on_attach callback here
-    sources = {
-      require("null-ls").builtins.formatting.gofumpt,
-    }
-})
+require("bufferline").setup{}
 
 require("colorizer").setup{}
-
-local npairs = require("nvim-autopairs")
-local Rule = require('nvim-autopairs.rule')
-
-npairs.setup({
-    check_ts = true,
-})
 
 -- require("nvim_comment").setup{}
 require("Comment").setup{}
@@ -519,7 +570,6 @@ require("which-key").setup {
 }
 
 require('gitsigns').setup{}
-
 require("lsp-colors").setup({})
 
 -- following options are the default
@@ -528,6 +578,31 @@ require'nvim-tree'.setup {
     adaptive_size = true,
   }
 }
+
+-- barbecue
+
+-- triggers CursorHold event faster
+vim.opt.updatetime = 200
+
+require("barbecue").setup({
+  create_autocmd = false, -- prevent barbecue from updating itself automatically
+  theme = 'tokyonight',
+})
+
+vim.api.nvim_create_autocmd({
+  "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+
+  -- include this if you have set `show_modified` to `true`
+  "BufModifiedSet",
+}, {
+  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+  callback = function()
+    require("barbecue.ui").update()
+  end,
+})
 
 -- -- diff view
 -- local actions = require("diffview.actions")
@@ -539,145 +614,86 @@ require'nvim-tree'.setup {
 -- Setup debugger
 --
 
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-    toggle = "t",
-  },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7"),
-  -- Layouts define sections of the screen to place windows.
-  -- The position can be "left", "right", "top" or "bottom".
-  -- The size specifies the height/width depending on position.
-  -- Elements are the elements shown in the layout (in order).
-  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
-  layouts = {
-    {
-      elements = {
-      -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        "stacks",
-        "watches",
-      },
-      size = 40,
-      position = "left",
-    },
-    {
-      elements = {
-        "repl",
-        "console",
-      },
-      size = 10,
-      position = "bottom",
-    },
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
-  }
-})
-require("nvim-dap-virtual-text").setup()
-require('dap-go').setup()
-
-
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
-
-vim.keymap.set('n', '<leader>dh', function() require"dap".toggle_breakpoint() end)
-vim.keymap.set('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-vim.keymap.set('n', '<A-k>', function() require"dap".step_out() end)
-vim.keymap.set('n', "<A-l>", function() require"dap".step_into() end)
-vim.keymap.set('n', '<A-j>', function() require"dap".step_over() end)
-vim.keymap.set('n', '<A-h>', function() require"dap".continue() end)
-vim.keymap.set('n', '<A-e>', function() require"dapui".eval() end)
-vim.keymap.set('n', '<leader>dd', function() require("dapui").toggle() end)
-vim.keymap.set('n', '<leader>dn', function() require"dap".run_to_cursor() end)
-vim.keymap.set('n', '<leader>dc', function() require"dap".terminate() end)
-vim.keymap.set('n', '<leader>dR', function() require"dap".clear_breakpoints() end)
-vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
-vim.keymap.set('n', '<leader>da', function() require"debugHelper".attach() end)
-vim.keymap.set('n', '<leader>dA', function() require"debugHelper".attachToRemote() end)
-vim.keymap.set('n', '<leader>di', function() require"dap.ui.widgets".hover() end)
-vim.keymap.set('n', '<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end)
-vim.keymap.set('n', '<leader>dk', ':lua require"dap".up()<CR>zz')
-vim.keymap.set('n', '<leader>dj', ':lua require"dap".down()<CR>zz')
-vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l')
-
+-- require("dapui").setup({
+--   icons = { expanded = "▾", collapsed = "▸" },
+--   mappings = {
+--     -- Use a table to apply multiple mappings
+--     expand = { "<CR>", "<2-LeftMouse>" },
+--     open = "o",
+--     remove = "d",
+--     edit = "e",
+--     repl = "r",
+--     toggle = "t",
+--   },
+--   -- Expand lines larger than the window
+--   -- Requires >= 0.7
+--   expand_lines = vim.fn.has("nvim-0.7"),
+--   -- Layouts define sections of the screen to place windows.
+--   -- The position can be "left", "right", "top" or "bottom".
+--   -- The size specifies the height/width depending on position.
+--   -- Elements are the elements shown in the layout (in order).
+--   -- Layouts are opened in order so that earlier layouts take priority in window sizing.
+--   layouts = {
+--     {
+--       elements = {
+--       -- Elements can be strings or table with id and size keys.
+--         { id = "scopes", size = 0.25 },
+--         "breakpoints",
+--         "stacks",
+--         "watches",
+--       },
+--       size = 40,
+--       position = "left",
+--     },
+--     {
+--       elements = {
+--         "repl",
+--         "console",
+--       },
+--       size = 10,
+--       position = "bottom",
+--     },
+--   },
+--   floating = {
+--     max_height = nil, -- These can be integers or a float between 0 and 1.
+--     max_width = nil, -- Floats will be treated as percentage of your screen.
+--     border = "single", -- Border style. Can be "single", "double" or "rounded"
+--     mappings = {
+--       close = { "q", "<Esc>" },
+--     },
+--   },
+--   windows = { indent = 1 },
+--   render = {
+--     max_type_length = nil, -- Can be integer or nil.
+--   }
+-- })
+-- require("nvim-dap-virtual-text").setup()
+-- 
+-- vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+-- vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
+-- vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+-- 
+-- vim.keymap.set('n', '<leader>dh', function() require"dap".toggle_breakpoint() end)
+-- vim.keymap.set('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+-- vim.keymap.set('n', '<A-k>', function() require"dap".step_out() end)
+-- vim.keymap.set('n', "<A-l>", function() require"dap".step_into() end)
+-- vim.keymap.set('n', '<A-j>', function() require"dap".step_over() end)
+-- vim.keymap.set('n', '<A-h>', function() require"dap".continue() end)
+-- vim.keymap.set('n', '<A-e>', function() require"dapui".eval() end)
+-- vim.keymap.set('n', '<leader>dd', function() require("dapui").toggle() end)
+-- vim.keymap.set('n', '<leader>dn', function() require"dap".run_to_cursor() end)
+-- vim.keymap.set('n', '<leader>dc', function() require"dap".terminate() end)
+-- vim.keymap.set('n', '<leader>dR', function() require"dap".clear_breakpoints() end)
+-- vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
+-- vim.keymap.set('n', '<leader>da', function() require"debugHelper".attach() end)
+-- vim.keymap.set('n', '<leader>dA', function() require"debugHelper".attachToRemote() end)
+-- vim.keymap.set('n', '<leader>di', function() require"dap.ui.widgets".hover() end)
+-- vim.keymap.set('n', '<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end)
+-- vim.keymap.set('n', '<leader>dk', ':lua require"dap".up()<CR>zz')
+-- vim.keymap.set('n', '<leader>dj', ':lua require"dap".down()<CR>zz')
+-- vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l')
+-- 
 -- local dap = require("dap")
--- dap.adapters.go = function(callback, config)
---     local stdout = vim.loop.new_pipe(false)
---     local handle
---     local pid_or_err
---     local port = 38697
---     local opts = {
---       stdio = {nil, stdout},
---       args = {"dap", "-l", "127.0.0.1:" .. port},
---       detached = true
---     }
---     handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
---       stdout:close()
---       handle:close()
---       if code ~= 0 then
---         print('dlv exited with code', code)
---       end
---     end)
---     assert(handle, 'Error running dlv: ' .. tostring(pid_or_err))
---     stdout:read_start(function(err, chunk)
---       assert(not err, err)
---       if chunk then
---         vim.schedule(function()
---           require('dap.repl').append(chunk)
---         end)
---       end
---     end)
---     -- Wait for delve to start
---     vim.defer_fn(
---       function()
---         callback({type = "server", host = "127.0.0.1", port = port})
---       end,
---       100)
---   end
---   -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
---   dap.configurations.go = {
---     {
---       type = "go",
---       name = "Debug",
---       request = "launch",
---       program = "${file}"
---     },
---     {
---       type = "go",
---       name = "Debug test", -- configuration for debugging test files
---       request = "launch",
---       mode = "test",
---       program = "${file}"
---     },
---     -- works with go.mod packages and sub packages 
---     {
---       type = "go",
---       name = "Debug test (go.mod)",
---       request = "launch",
---       mode = "test",
---       program = "./${relativeFileDirname}"
---     } 
--- }
 
 --
 -- Setup Golang
@@ -687,67 +703,27 @@ vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<C
 -- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 -- vim.api.nvim_exec([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]], false)
 
--- local path = require 'nvim-lsp-installer.core.path'
--- local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
-
-require('go').setup({
-  go='go', -- go command, can be go[default] or go1.18beta1
-  -- gopls_cmd = {install_root_dir .. '/go/gopls'},
-  -- goimport='goimport', -- goimport command, can be gopls[default] or goimport
-  fillstruct = 'gopls', -- can be nil (use fillstruct, slower) and gopls
-  gofmt = 'goimports', --gofmt cmd,
-  max_line_len = 120, -- max line length in goline format
-  -- tag_transform = false, -- can be transform option("snakecase", "camelcase", etc) check gomodifytags for details and more options
-  -- gotests_template = "", -- sets gotests -template parameter (check gotests for details)
-  -- gotests_template_dir = "", -- sets gotests -template_dir parameter (check gotests for details)
-  -- comment_placeholder = '' ,  -- comment_placeholder your cool placeholder e.g. ﳑ       
-  icons = false,
-  verbose = false,  -- output loginf in messages
-  lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
-                   -- false: do nothing
-                   -- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
-                   --   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
-  lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
-  lsp_on_attach = nil, -- nil: use on_attach function defined in go/lsp.lua,
-                       --      when lsp_cfg is true
-                       -- if lsp_on_attach is a function: use this function as on_attach function for gopls
-  lsp_keymaps = false, -- set to false to disable gopls/lsp keymap
-  lsp_codelens = false, -- set to false to disable codelens, true by default, you can use a function
-  -- function(bufnr)
-  --    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap=true, silent=true})
-  -- end
-  -- to setup a table of codelens
-  lsp_diag_hdlr = true, -- hook lsp diag handler
-  -- virtual text setup
-  lsp_diag_virtual_text = { space = 0, prefix = "" },
-  lsp_diag_signs = true,
-  lsp_diag_update_in_insert = false,
-  lsp_document_formatting = true,
-  -- set to true: use gopls to format
-  -- false if you want to use other formatter tool(e.g. efm, nulls)
-  -- gopls_cmd = nil, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
-  gopls_remote_auto = true, -- add -remote=auto to gopls
-  dap_debug = true, -- set to false to disable dap
-  dap_debug_keymap = false, -- true: use keymap for debugger defined in go/dap.lua
-                           -- false: do not use keymap in go/dap.lua.  you must define your own.
-  dap_debug_gui = true, -- set to true to enable dap gui, highly recommand
-  dap_debug_vt = true, -- set to true to enable dap virtual text
-  -- build_tags = "tag1,tag2", -- set default build tags
-  textobjects = true, -- enable default text jobects through treesittter-text-objects
-  test_runner = 'go', -- richgo, go test, richgo, dlv, ginkgo
-  verbose_tests = true, -- set to add verbose flag to tests
-  run_in_floaterm = false, -- set to true to run in float window. :GoTermClose closes the floatterm
-                           -- float term recommand if you use richgo/ginkgo with terminal color
-})
+-- require('go').setup({})
 
 require"fidget".setup{}
+-- require("output_panel").setup()
+require('telescope').setup({})
+
+-- require("nvim-lightbulb").setup({
+--   autocmd = { enabled = true }
+-- })
+require("ibl").setup()
 
 EOF
 
 
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 set hidden
+
+function FoldBuf()
+  write
+  edit
+  TSBufEnable highlight
+endfunction
 
